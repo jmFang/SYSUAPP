@@ -24,6 +24,7 @@ Polls is a simple API allowing consumers to view polls and vote in them.
         }
 
 ## UserInfoCollections [/users/{id}]
+
 This operation is to get user info by user's id
 + Parameters
     - id : "1533" (string, required)
@@ -50,20 +51,17 @@ This operation is to get user info by user's id
                 "nation":1
             }
         }
-        
-## CourseInfoCollection [courses/select/]
 
+## CourseInfoCollection [/courses/select/{?college,grade,major}]
+
++ Parameters
+    - college : 14 (int, required)
+    - grade : 3 (int, required)
+    - major : 3 (int, required)
 
 ### GetCoursesForSelect [GET]
 
-+ Request (application/json)
-
-        {
-            "college":14,
-            "grade":3,
-            "major":3
-        }
-+ Response (apllication/json)
++ Response 200 (apllication/json)
 
         {
             "id":"15331000",
