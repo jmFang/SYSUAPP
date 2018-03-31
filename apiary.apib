@@ -5,28 +5,29 @@ HOST: http://polls.apiblueprint.org/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## UserCollections [/users]
+## UserCollections [/user]
 
 ### Login [POST]
 
 + Request (application/json)
 
         {
-            "id":15331074,
+            "netId":fangjm5,
             "pass":"15331074"
         
         }
 + Response 200 (application/json)
 
         {
-            "succcess":true
+            "succcess":true,
+            "userId":"sdcs1074"
         }
 
-## UserInfoCollections [/user/{?id}]
-
+## UserInfoCollections [/users/{id}]
+This operation is to get user info by user's id
 + Parameters
-    - key : "1533" (string, required)
-    
+    - id : "1533" (string, required)
+
 ### GetUserInfo [GET]
 
 + Request (application/json)
@@ -47,5 +48,36 @@ Polls is a simple API allowing consumers to view polls and vote in them.
                 "mobile":"13789897867",
                 "sex":1,
                 "nation":1
+            }
+        }
+        
+## CourseInfoCollection [courses/select/]
+
+
+### GetCoursesForSelect [GET]
+
++ Request (application/json)
+
+        {
+            "college":14,
+            "grade":3,
+            "major":3
+        }
++ Response (apllication/json)
+
+        {
+            "id":"15331000",
+            "college":14,
+            "grade":3,
+            "major":3,
+            "courses":{
+                "common":[
+                    {
+                        "coursename":"并行程序设计",
+                        "courseid":"sdcs1234",
+                        "credit":3,
+                        "capacity":120
+                    }
+                ]
             }
         }
