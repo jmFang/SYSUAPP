@@ -5,83 +5,9 @@ HOST: http://polls.apiblueprint.org/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/questions]
+## UserCollections [/users]
 
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
-
-## UserCollections
-
-### Login
+### Login [POST]
 
 + Request (application/json)
 
@@ -94,4 +20,32 @@ form of choices.
 
         {
             "succcess":true
+        }
+
+## UserInfoCollections [/user/{?id}]
+
++ Parameters
+    - key : "1533" (string, required)
+    
+### GetUserInfo [GET]
+
++ Request (application/json)
+
+        {
+            "id":15331074
+        }
++ Response 200 (application/json)
+
+        {
+            "id":15331074,
+            "info":{
+                "name":"sysuygm",
+                "avatar":"aveatar's url",
+                "college":12,
+                "major":4,
+                "grade":3,
+                "mobile":"13789897867",
+                "sex":1,
+                "nation":1
+            }
         }
